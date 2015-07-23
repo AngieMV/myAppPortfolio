@@ -17,10 +17,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
     }
 
+    private Toast t;
+
     @Override
     public void onClick(View v) {
+
         String buttonText = ((Button) v).getText().toString();
-        Toast.makeText(this, "This button will launch my " + buttonText, Toast.LENGTH_SHORT).show();
+        if (t !=null) {
+            t.cancel();
+        }
+        t = Toast.makeText(this, "This button will launch my " + buttonText, Toast.LENGTH_LONG);
+        t.show();
     }
 
 }
